@@ -1,0 +1,9 @@
+{
+  "name": "musicdesktop-deckboard",
+  "version": "2.0.3",
+  "private": true,
+  "type": "module",
+  "scripts": { "build": "node build.mjs" },
+  "dependencies": { "deckboard-kit": "1.0.0", "ws": "^8.18.3" },
+  "devDependencies": { "@electron/asar": "4.1.1", "esbuild": "^0.28.1" }
+}

@@ -1,0 +1,14 @@
+import { build } from "esbuild";
+import { createPackage } from "@electron/asar";
+import { mkdir, copyFile, writeFile, readFile } from "node:fs/promises";
+const staging = "dist/package";
+await mkdir(staging, { recursive: true });
+await mkdir("../../frontend/public/integrations", { recursive: true });
+await build({ entryPoints: ["src/entry.cjs"], outfile: `${staging}/index.js`, bundle: true, platform: "node", target: "node16", format: "cjs", minify: true, external: ["electron", "bufferutil", "utf-8-validate"] });
+await copyFile("extension.yml", `${staging}/extension.yml`);
+await writeFile(`${staging}/package.json`, JSON.stringify({ name: "musicdesktop-deckboard", version: "2.0.3", main: "index.js" }, null, 2));
+const notices = await Promise.all(["deckboard-kit", "ws", "electron-log"].map(async name => `${name}\n${await readFile(`node_modules/${name}/LICENSE`, "utf8")}\n`));
+await writeFile(`${staging}/THIRD_PARTY_NOTICES.txt`, notices.join("\n"));
+await copyFile("LICENSE", `${staging}/LICENSE`);
+await createPackage(staging, "../../frontend/public/integrations/musicdesktop-deckboard.asar");
+console.log("Built musicdesktop-deckboard.asar (Deckboard Windows extension)");

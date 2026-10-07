@@ -1,0 +1,11 @@
+{
+  "name": "musicdesktop-deckboard-source",
+  "version": "2.0.3",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "build": "npm --prefix integrations/deckboard run build",
+    "test": "node --test tests/deckboard.test.cjs"
+  }
+}
