@@ -12,6 +12,9 @@ and the current track title.
 - MusicDesktop 2.0.3 or later, installed on the same PC.
 - Streamer Mode enabled in MusicDesktop for playback commands.
 
+Use the latest MusicDesktop release. MusicDesktop 2.0.4 fixes compatibility
+with the Android Remote companion after 2.0.3.
+
 ## Installation
 
 1. Download `musicdesktop-deckboard.asar` from this repository's release.
@@ -82,4 +85,4 @@ npm test
 The build outputs `frontend/public/integrations/musicdesktop-deckboard.asar`.
 Tests use the bundled Deckboard SDK with a simulated host and a local HTTP/WebSocket fixture. They cover packaging, actions, live values, reconnect, redirects and cleanup. They do not operate a real Deckboard application or phone.
 
-[Download extension 2.0.3](https://github.com/Azashiin/MusicDesktop-Deckboard/releases/tag/v2.0.3) · [MusicDesktop 2.0.3](https://github.com/Azashiin/Music-Desktop-Releases/releases/tag/v2.0.3)
+[Download extension 2.0.3](https://github.com/Azashiin/MusicDesktop-Deckboard/releases/tag/v2.0.3) · [Download MusicDesktop](https://github.com/Azashiin/Music-Desktop-Releases/releases/latest)
